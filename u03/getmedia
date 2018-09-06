@@ -2,7 +2,7 @@
 do_help=no
 img=yes
 snd=yes
-webpage =""
+webpage=""
 
 
 while [ -n "$1" ]; do
@@ -29,23 +29,24 @@ while [ -n "$1" ]; do
         esac
         shift
 done
+
 if [[ "$do_help" = yes ]]; then
                         echo "-i for images only"
                         echo "-s for sounds only"
                         echo "--help for help"
                         echo "just webpege for both sounds and images"
 fi
+
 if [[ -n "$webpage" ]]; then
-                        if [[ $img = yes ]]; then
-                                                grep -ho ".jpg$"
-                                                grep -ho ".png$"
-                                                grep -ho ".svg$"
+                        if [[ "$img" = yes ]]; then
+                                                cat "$webpage" | grep -w "[^ ]*.jpg"
+                                                cat "$webpage" | grep -w "[^ ]*.png"
+                                                cat "$webpage" | grep -w "[^ ]*.svg"
                         fi
 
-                        if [[ $snd = yes ]]; then
-                                                grep -ho ".waw"
-                                                grep -ho ".mp3"
-                                                grep -ho ".ogg"
-                          fi
+                        if [[ "$snd" = yes ]]; then
+                                                cat "$webpage" | grep -w "[^ ]*.waw"
+                                                cat "$webpage" | grep -w "[^ ]*.mp3"
+                                                cat "$webpage" | grep -w "[^ ]*.ogg"
+                        fi
 fi
-
