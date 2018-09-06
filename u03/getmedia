@@ -39,14 +39,14 @@ fi
 
 if [[ -n "$webpage" ]]; then
                         if [[ "$img" = yes ]]; then
-                                                cat "$webpage" | grep -w "[^ ]*.jpg\>"
-                                                cat "$webpage" | grep -w "[^ ]*.png\>"
-                                                cat "$webpage" | grep -w "[^ ]*.svg\>"
+                                                cat "$webpage" | grep -w "\<[^ ]*.jpg\>"
+                                                cat "$webpage" | grep -w "\<[^ ]*.png\>"
+                                                cat "$webpage" | grep -w "\<[^ ]*.svg\>"
                         fi
 
                         if [[ "$snd" = yes ]]; then
-                                                cat "$webpage" | grep -w "[^ ]*.waw\>"
-                                                cat "$webpage" | grep -w "[^ ]*.mp3\>"
-                                                cat "$webpage" | grep -w "[^ ]*.ogg\>"
+                                                cat "$webpage" | grep -w "\<[^ ]*.waw\>"
+                                                cat "$webpage" | grep -w "\<[^ ]*.mp3\>"
+                                                cat "$webpage" | grep -w "\<[^ ]*.ogg\>"
                         fi
 fi
